@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/headeryfooter.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>JIMDUR EIRL</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="barra-navegacion">
+                <div class="logo">
+                    <a href="index.html">
+                        <img class="logo_jimdur" src="img/Logo Jimdur/logo_Jimdur_pequeno.png" alt="">
+                    </a>
+                </div>
+                <ul class="enlaces-navegacion">
+                    <li><a href="index.html" class="activo">Inicio</a></li>
+                    <li><a href="html/productos.html">Productos</a></li>
+                    <li><a href="html/nosotros.html">Nosotros</a></li>
+                    <li><a href="html/contacto.html">Contacto</a></li>
+                </ul>
+                <form class="formulario-busqueda" action="#">
+                    <input type="text" placeholder="Buscar...">
+                    <button type="submit" class="boton-busqueda">
+                        <img class="imagen-boton" src="img/iconos/buscar.png" alt="Buscar">
+                    </button>
+                </form>
+                <!-- Botón menú hamburguesa -->
+                <div class="hamburguesa" onclick="alternarMenu()">
+                    &#9776;
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- SECCIÓN MOTOCICLETA -->
+        <div class="seccion-moto">
+            <div class="seccion-moto__contenedor">
+                <h2 class="seccion-moto__contenedor --titulo">REPUESTOS ORIGINALES Y DE CALIDAD</h2>
+                <p class="seccion-moto__contenedor --descripcion">
+                    Ofrecemos una amplia gama de repuestos originales diseñados para maximizar el rendimiento <br
+                        class="salto-linea"> y la vida útil de tu moto para que disfrutes de la carretera con total
+                    confianza
+                </p>
+                <button onclick="location.href='html/productos.html'" class="seccion-moto__contenedor --boton">VER
+                    PRODUCTOS</button>
+            </div>
+        </div>
+
+        <!-- SUB ENCABEZADO-->
+        <nav class="sub-encabezado">
+            <a href="#ventajas">VENTAJAS</a>
+            <a href="#servicios">SERVICIOS</a>
+            <a href="#reseñas">RESEÑAS</a>
+            <a href="#proveedores">PROVEEDORES</a>
+        </nav>
+
+        <!-- SECCIÓN NUESTRAS VENTAJAS CON CSS GRID -->
+        <section class="ventajas" id="ventajas">
+            <h2 class="ventajas__titulo">NUESTRAS <span>VENTAJAS</span></h2>
+            <p class="ventajas__descripcion">
+                Encuentra todo lo que necesitas para tu moto, con la confianza de estar eligiendo lo mejor.
+            </p>
+            <div class="ventajas__grid">
+                <div class="ventaja">
+                    <div class="ventaja__icono">
+                        <img src="img/iconos/calidad.png" alt="Calidad">
+                    </div>
+                    <h3 class="ventaja__titulo">CALIDAD</h3>
+                    <p class="ventaja__texto">
+                        Repuestos originales que <br> garantizan un rendimiento <br>
+                        y durabilidad <br> excepcionales.
+                    </p>
+                </div>
+                <div class="ventaja">
+                    <div class="ventaja__icono --circulo-rojo">
+                        <img src="img/iconos/experiencia.png" alt="Experiencia">
+                    </div>
+                    <h3 class="ventaja__titulo">EXPERIENCIA</h3>
+                    <p class="ventaja__texto">
+                        Más de 5 años dedicados <br> al motociclismo, con un <br>
+                        equipo experto que <br> conoce cada detalle.
+                    </p>
+                </div>
+                <div class="ventaja">
+                    <div class="ventaja__icono --circulo-rojo">
+                        <img src="img/iconos/satisfaccion.png" alt="Satisfacción">
+                    </div>
+                    <h3 class="ventaja__titulo">SATISFACCIÓN</h3>
+                    <p class="ventaja__texto">
+                        Nuestro compromiso es <br> superar tus expectativas <br>
+                        en cada compra.
+                    </p>
+                </div>
+                <div class="ventaja">
+                    <div class="ventaja__icono --circulo-rojo">
+                        <img src="img/iconos/soporte.png" alt="Soporte">
+                    </div>
+                    <h3 class="ventaja__titulo">SOPORTE</h3>
+                    <p class="ventaja__texto">
+                        Asesoría personalizada y <br> atención postventa para <br>
+                        asegurarte la mejor <br> experiencia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 'NUESTROS SERVICIOS' CON CSS GRID -->
+        <section class="servicios" id="servicios">
+            <h2 class="servicios__titulo">NUESTROS <span>SERVICIOS</span></h2>
+            <p class="servicios__descripcion">
+                Ofrecemos una amplia gama de servicios diseñados para cubrir todas las necesidades de tu moto.
+            </p>
+
+            <div class="servicios__grid">
+                <div class="servicio">
+                    <img src="img/respuestos.jpg" class="img-servicios" alt="Venta de Repuestos y Accesorios">
+                    <h4 class="titulo-serv">Venta de Repuestos y <br> Accesorios </h4>
+                    <p class="descrip-serv">
+                        Surtido amplio de piezas y <br> accesorios originales y de <br>
+                        calidad para diferentes <br> modelos de motos.
+                    </p>
+                </div>
+
+                <div class="servicio">
+                    <img src="img/asesoria.jpg" class="img-servicios" alt="Asesoría Técnica Especializada">
+                    <h4 class="titulo-serv">Asesoría Técnica <br> Especializada</h4>
+                    <p class="descrip-serv">
+                        Asesoramiento profesional <br> para elegir los repuestos y <br>
+                        accesorios más adecuados <br> según las necesidades de <br> tu moto.
+                    </p>
+                </div>
+
+                <div class="servicio">
+                    <img src="img/instlacion.jpg" class="img-servicios" alt="Instalación de Repuestos">
+                    <h4 class="titulo-serv">Instalación de <br> Repuestos</h4>
+                    <p class="descrip-serv">
+                        Instalación profesional de <br> piezas y accesorios para <br>
+                        asegurar un rendimiento <br> óptimo.
+                    </p>
+                </div>
+
+                <div class="servicio">
+                    <img src="img/envio.jpg" class="img-servicios" alt="Servicio de Envío">
+                    <h4 class="titulo-serv">Servicio de Envío</h4>
+                    <p class="descrip-serv">
+                        Entrega a domicilio de <br> repuestos y accesorios, <br>
+                        con opciones de envío <br> rápido y seguro.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 'RESEÑAS DE CLIENTES' -->
+        <section class="reseñas" id="reseñas">
+            <h2 class="reseñas__titulo"> <span>RESEÑAS</span> DE CLIENTES </h2>
+            <p class="reseñas__descripcion">Lo que más nos motiva es la satisfacción de nuestros clientes</p>
+            <div class="reseñas__grid">
+                <div class="reseñas__item">
+                    <div class="img-reseñas --carlos"></div>
+                    <p class="nombres">Carlos Ramírez</p>
+                    <div class="estrellas"></div>
+                    <div class="opiniones">
+                        "Compré varios repuestos para <br> mi moto y quedé impresionado <br>
+                        con la calidad. Además, el equipo <br> fue muy atento y me ayudó a <br>
+                        elegir las piezas adecuadas. <br> Definitivamente volveré a <br>
+                        comprar aquí."
+                    </div>
+                </div>
+                <div class="reseñas__item">
+                    <div class="img-reseñas --laura"></div>
+                    <p class="nombres">Laura Gonzáles</p>
+                    <div class="estrellas"></div>
+                    <div class="opiniones">
+                        "La atención al cliente es <br> excepcional. Me asesoraron en <br>
+                        todo momento y me enviaron los <br> repuestos rápidamente. Mi moto <br>
+                        quedó como nueva, muy <br> recomendable."
+                    </div>
+                </div>
+                <div class="reseñas__item">
+                    <div class="img-reseñas --javier"></div>
+                    <p class="nombres">Javier López</p>
+                    <div class="estrellas"></div>
+                    <div class="opiniones">
+                        "Lo mejor es la variedad y la <br> disponibilidad de piezas. <br>
+                        originales. Encontré todo lo que <br> necesitaba en un solo lugar, y a <br>
+                        precios justos. El servicio de <br> instalación también fue <br>
+                        excelente."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 'NUESTROS PROVEEDORES' -->
+        <section class="proveedores" id="proveedores">
+            <h2 class="proveedores__titulo">NUESTROS <span>PROVEEDORES</span></h2>
+            <p class="proveedores__descripcion">
+                Trabajamos con proveedores líderes en la industria para asegurarte repuestos y accesorios de la <br
+                    class="salto-linea"> más alta calidad
+            </p>
+            <div class="proveedores__grid">
+                <div class="proveedores__marca"><img src="img/marcas/yamaha.png" class="img-marcas"></div>
+                <div class="proveedores__marca"><img src="img/marcas/Honda.png" class="img-marcas"></div>
+                <div class="proveedores__marca"><img src="img/marcas/ktm.png" class="img-marcas"></div>
+                <div class="proveedores__marca"><img src="img/marcas/Kawasaki.png" class="img-marcas"></div>
+                <div class="proveedores__marca"><img src="img/marcas/BAJAJ.png" class="img-marcas"></div>
+                <div class="proveedores__marca"><img src="img/marcas/Hero.png" class="img-marcas"></div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+
+<footer class="pie-pagina">
+    <div class="pie-pagina__contenido">
+        <section class="pie-pagina__seccion">
+            <div class="pie-pagina__logo">
+                <h2 class="pie-pagina__titulo-logo">SOBRE JIMDUR</h2>
+                <img width="50px" src="../img/Logo Jimdur/logofooter-sinfondo.png" alt="JIMDUR Repuestos">
+                <p class="pie-pagina__descripcion">Nos dedicamos a ofrecerte una selección de repuestos y accesorios
+                    de
+                    la
+                    más alta calidad para que disfrutes de un rendimiento superior en cada trayecto. Confiamos en
+                    nuestras marcas y en nuestra experiencia para brindarte el mejor servicio y la satisfacción que
+                    mereces. Tu moto está en buenas manos con nosotros.</p>
+                <p style="font-size: 12px;">&copy; Jimdur 2024</p>
+            </div>
+        </section>
+        <div class="pie-pagina__linea-divisora"></div>
+        <section class="pie-pagina__seccion">
+            <div class="pie-pagina__enlaces">
+                <h3 class="pie-pagina__titulo">ENLACES</h3>
+                <ul class="pie-pagina__lista">
+                    <li class="pie-pagina__lista-item"><a href="index.html" class="pie-pagina__enlace">Inicio</a>
+                    </li>
+                    <li class="pie-pagina__lista-item"><a href="html/productos.html"
+                            class="pie-pagina__enlace">Productos</a></li>
+                    <li class="pie-pagina__lista-item"><a href="html/nosotros.html"
+                            class="pie-pagina__enlace">Nosotros</a></li>
+                    <li class="pie-pagina__lista-item"><a href="html/contacto.html" class="pie-pagina__enlace">Contactanos</a></li>
+                    <li class="pie-pagina__lista-item"><a href="html/Politicas.html#terminos-condiciones" class="pie-pagina__enlace" target="_blank">Terminos y condiciones</a></li>
+                </ul>
+            </div>
+        </section>
+        <div class="pie-pagina__linea-divisora"></div>
+        <section class="pie-pagina__seccion">
+            <div class="pie-pagina__contactos">
+                <h3 class="pie-pagina__titulo">CONTACTOS</h3>
+                <ul class="pie-pagina__lista">
+                    <li class="pie-pagina__lista-item">
+                        <a href="tel:123456789" class="pie-pagina__enlace">
+                            <i class="fas fa-phone"></i> 123456 789
+                        </a>
+                    </li>
+                    <li class="pie-pagina__lista-item">
+                        <a href="tel:987654321" class="pie-pagina__enlace">
+                            <i class="fas fa-phone"></i> 987654 321
+                        </a>
+                    </li>
+                    <li class="pie-pagina__lista-item">
+                        <a href="mailto:jimdur@gmail.com" class="pie-pagina__enlace">
+                            <i class="fas fa-envelope"></i> jimdur@gmail.com
+                        </a>
+                    </li>
+                </ul>
+                <h3 class="pie-pagina__titulo" style="padding-top: 20px; padding-bottom: 10px;">SÍGUENOS</h3>
+                <div class="pie-pagina__redes-sociales">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+</footer>
+
+<div class="whatsapp">
+    <div class="whatsapp__texto">
+        <span class="whatsapp__ayuda">¿Necesitas ayuda?</span>
+        <span class="whatsapp__status">Estamos en línea</span>
+    </div>
+    <a href="https://wa.me/968108776" target="_blank" class="whatsapp__boton">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+<script>
+    function alternarMenu() {
+        const enlacesNavegacion = document.querySelector('.enlaces-navegacion');
+        enlacesNavegacion.classList.toggle('nav-activo');
+    }
+</script>
+
+</html>

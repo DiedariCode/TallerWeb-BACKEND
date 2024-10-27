@@ -1,0 +1,49 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <div class="flex justify-center mb-6">
+            <button class="text-black font-semibold mr-4">INICIAR SESIÓN</button>
+            <button class="text-gray-400 font-semibold">REGISTRARME</button>
+        </div>
+        <form>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Nombre de usuario o correo electrónico *
+                </label>
+                <div class="relative">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="">
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-3">
+                        <i class="fas fa-user text-gray-400"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Contraseña *
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="">
+            </div>
+            <div class="mb-4">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" class="form-checkbox text-gray-600">
+                    <span class="ml-2 text-gray-700">Recordarme</span>
+                </label>
+            </div>
+            <div class="mb-4">
+                <button class="w-full bg-gray-200 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    Iniciar sesión
+                </button>
+            </div>
+            <div class="text-center">
+                <a class="inline-block align-baseline font-bold text-sm text-red-500 hover:text-red-800" href="#">
+                    ¿Perdiste tu contraseña?
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
