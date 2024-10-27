@@ -92,6 +92,20 @@
 
         <!-- Formulario de Registro (Oculto por defecto) -->
         <form class="autenticacion__formulario autenticacion__formulario--oculto" method="POST" action="procesar_registro.php">
+            
+            <div class="autenticacion__grupo">
+                <label class="autenticacion__etiqueta" for="nueva_nombre">
+                    Usuario *
+                </label>
+                <input 
+                    class="autenticacion__input" 
+                    type="text" 
+                    id="nuevo_usuario" 
+                    name="nuevo_usuario" 
+                    required
+                >
+            </div>
+            
             <div class="autenticacion__grupo">
                 <label class="autenticacion__etiqueta" for="nuevo_usuario">
                     Correo electrónico *
@@ -99,8 +113,8 @@
                 <input 
                     class="autenticacion__input" 
                     type="email" 
-                    id="nuevo_usuario" 
-                    name="nuevo_usuario" 
+                    id="nuevo_correo" 
+                    name="nuevo_correo" 
                     required
                 >
             </div>
@@ -117,7 +131,7 @@
                     required
                 >
             </div>
-            
+        
             <button type="submit" class="autenticacion__boton">
                 Registrarse
             </button>
