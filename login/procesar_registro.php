@@ -5,7 +5,7 @@ $correo = $_POST['nuevo_correo'];
 $contrasena = password_hash($_POST['nueva_contrasena'], PASSWORD_DEFAULT);
 $nombre = $_POST['nuevo_usuario'];
 
-$sql = "INSERT INTO usuarios (correo, contrasena, nombre) VALUES (?, ?, ?)";
+$sql = "INSERT INTO usuarios (correo, contrasena, Usuario) VALUES (?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $correo, $contrasena, $nombre);
 
