@@ -11,27 +11,28 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>JIMDUR EIRL</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
 
-        .search-button {
-            background-color: #B22222;
-            border-radius: 0 25px 25px 0;
-            color: white;
-        }
+    .search-button {
+        background-color: #B22222;
+        border-radius: 0 25px 25px 0;
+        color: white;
+    }
 
-        .navbar-custom {
-            background-color: #B22222;
-        }
+    .navbar-custom {
+        background-color: #B22222;
+    }
 
-        .containerHeader {
-            margin-left: 15px;
-            margin-right: 15px;
-            max-width: 100%;
-        }
-        /* Header | MODO CELULAR */
-        @media (max-width: 768px) {
+    .containerHeader {
+        margin-left: 15px;
+        margin-right: 15px;
+        max-width: 100%;
+    }
+
+    /* Header | MODO CELULAR */
+    @media (max-width: 768px) {
         .containerHeader {
             flex-direction: column;
             align-items: flex-start;
@@ -50,36 +51,36 @@
 </head>
 
 <body>
-<!-- Header -->
-<header class="bg-white shadow py-3">
-    <div class="containerHeader d-flex justify-content-between align-items-center">
-        <!-- Logo -->
-        <div class="d-flex align-items-center">
-            <img src="img/Logo Jimdur/logo_Jimdur_pequeno.png" alt="Logo Jimdur" style="width: 100px;">
-        </div>
+    <!-- Header -->
+    <header class="bg-white shadow py-3">
+        <div class="containerHeader d-flex justify-content-between align-items-center">
+            <!-- Logo -->
+            <div class="d-flex align-items-center">
+                <img src="img/Logo Jimdur/logo_Jimdur_pequeno.png" alt="Logo Jimdur" style="width: 100px;">
+            </div>
 
-        <!-- Search Bar -->
-        <div class="input-group w-50">
-            <input type="text" class="form-control" placeholder="Buscar productos...">
-            <button class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
-        </div>
+            <!-- Search Bar -->
+            <div class="input-group w-50">
+                <input type="text" class="form-control" placeholder="Buscar productos...">
+                <button class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+            </div>
 
-        <!-- Cart and Account -->
-        <div class="d-flex align-items-center">
-            <!-- Cart Icon -->
-            <button class="btn position-relative me-3">
-                <i class="fas fa-shopping-cart fa-lg"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    10
-                </span>
-            </button>
+            <!-- Cart and Account -->
+            <div class="d-flex align-items-center">
+                <!-- Cart Icon -->
+                <button class="btn position-relative me-3">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        10
+                    </span>
+                </button>
 
-            <!-- Account Dropdown -->
-            <div class="dropdown">
-                <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="accountDropdown"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-user-circle fa-lg me-2"></i>
-                    <?php
+                <!-- Account Dropdown -->
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="accountDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle fa-lg me-2"></i>
+                        <?php
                     session_start(); // Asegúrate de iniciar la sesión
                     if (isset($_SESSION['usuario_nombre'])) {
                         echo "Hola, " . htmlspecialchars($_SESSION['usuario_nombre']);
@@ -87,21 +88,22 @@
                         echo "Hola, Inicia sesión";
                     }
                     ?>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
-                    <?php if (isset($_SESSION['usuario_nombre'])): ?>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                        <?php if (isset($_SESSION['usuario_nombre'])): ?>
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                         <li><a class="dropdown-item" href="includes/cerrar_sesion.php">Cerrar sesión</a></li>
-                    <?php else: ?>
-                        <li><a class="dropdown-item" href="login/login_registro.php">Iniciar Sesion y/o Registrarme</a></li>
+                        <?php else: ?>
+                        <li><a class="dropdown-item" href="login/login_registro.php">Iniciar Sesion y/o Registrarme</a>
+                        </li>
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
-                    <?php endif; ?>
-                </ul>
+                        <?php endif; ?>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</header>
-<!-- Header -->
+    </header>
+    <!-- Header -->
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
@@ -417,9 +419,9 @@
                 Repuestos</a>
         </div>
         <style>
-            .text-reset {
-                text-decoration: none;
-            }
+        .text-reset {
+            text-decoration: none;
+        }
         </style>
         <!-- Copyright -->
     </footer>
@@ -438,15 +440,15 @@
         </a>
     </div>
     <script>
-        function alternarMenu() {
-            const enlacesNavegacion = document.querySelector('.enlaces-navegacion');
-            enlacesNavegacion.classList.toggle('nav-activo');
-        }
+    function alternarMenu() {
+        const enlacesNavegacion = document.querySelector('.enlaces-navegacion');
+        enlacesNavegacion.classList.toggle('nav-activo');
+    }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
