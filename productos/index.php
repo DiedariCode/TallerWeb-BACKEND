@@ -1,11 +1,29 @@
+<?php
+// index.php
+include '../includes/db.php'; // Incluir la conexión a la base de datos
+include 'funciones.php';
+
+// Configuración de la paginación
+$items_per_page = 16; // Total de productos por página
+$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($current_page - 1) * $items_per_page;
+
+// Obtener productos
+$result = obtenerProductos($conn, $offset, $items_per_page);
+$total_products = contarProductos($conn);
+$total_pages = ceil($total_products / $items_per_page);
+?>
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/headeryfooter.css">
-    <link rel="stylesheet" href="../css/nosotros.css">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="producto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -13,66 +31,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-    <title>Nosotros - JIMDUR Repuestos</title>
-    <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-    }
-
-    .search-button {
-        background-color: #B22222;
-        border-radius: 0 25px 25px 0;
-        color: white;
-    }
-
-    .navbar-custom {
-        background-color: #B22222;
-    }
-
-    .containerHeader {
-        margin-left: 15px;
-        margin-right: 15px;
-        max-width: 100%;
-    }
-
-    /* STYLE PARA LOS PROOVEDORES */
-    .proveedor-card {
-        position: relative;
-        width: 100%;
-        padding-top: 100%;
-        /* Relación de aspecto 1:1 para un tamaño cuadrado */
-        background-color: #f8f9fa;
-        /* Color de fondo para tarjetas */
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .proveedor-card img {
-        position: absolute;
-        max-width: 80%;
-        /* Asegura que la imagen se mantenga dentro de la tarjeta */
-        max-height: 80%;
-        /* Asegura que la imagen se mantenga dentro de la tarjeta */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .proveedor-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .proveedor-card:hover img {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-    </style>
+    <link rel="icon" href="">
 </head>
 
 <body>
@@ -119,8 +78,7 @@
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                         <li><a class="dropdown-item" href="../includes/cerrar_sesion.php">Cerrar sesión</a></li>
                         <?php else: ?>
-                        <li><a class="dropdown-item" href="../login/index.php">Iniciar Sesion y/o
-                                Registrarme</a></li>
+                        <li><a class="dropdown-item" href="../login/index.php">Iniciar Sesion y/o Registrarme</a></li>
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                         <?php endif; ?>
                     </ul>
@@ -142,7 +100,7 @@
                         <a class="nav-link text-white" href="../index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="nosotros.php">La empresa</a>
+                        <a class="nav-link text-white" href="../html/nosotros.php">La empresa</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="modeloDropdown" role="button"
@@ -155,7 +113,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-white" href="../productos/index.php">
+                        <a class="nav-link text-white" href="index.php">
                             Productos
                         </a>
                     </li>
@@ -163,7 +121,7 @@
                         <a class="nav-link text-white" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="contacto.php">Contacto</a>
+                        <a class="nav-link text-white" href="../contacto/index.php">Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -171,109 +129,92 @@
     </nav>
 
     <main>
-        <section class="banner">
-            <div class="contenedor">
-                <h2 class="titulo-caratula">SOBRE NOSOTROS</h2>
-                <p class="titulo-caratula titulo--parrafo">Pasión por las motos, compromiso con calidad</p>
-            </div>
-        </section>
-        <section class="nuestra-historia">
-            <div class="contenedor">
-                <h2><span class="negro">NUESTRA </span><span class="rojo">HISTORIA</span></h2>
-                <P>"En Jimdur E.I.R.L. cada repuesto cuenta una historia y cada cliente es parte de la nuestra."</P>
-                <div class="contenido-historia">
-                    <div class="texto">
-                        <p>Fundada en la ciudad de Piura, Jimdur E.I.R.L. nace con el compromiso de ofrecer productos de
-                            calidad para los amantes de las motocicletas. Desde nuestros inicios, hemos centrado
-                            nuestros esfuerzos en satisfacer las necesidades de nuestros clientes, brindando una amplia
-                            gama de repuestos, piezas, y accesorios para todas las marcas y modelos del mercado. A lo
-                            largo de los años, nos hemos consolidado como una empresa líder en el sector, destacándonos
-                            por nuestra pasión por el servicio al cliente.</p>
-                        <p>Luis Jimenez</p>
-                        <p>Gerente General</p>
-                    </div>
-                    <div class="imagen">
-                        <img src="../img/retrato-elegante.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="mision">
-            <div class="contenedor">
-                <div class="contenido">
-                    <h2><span class="blanco">NUESTRA </span><span class="rojo">MISIÓN</span></h2>
-                    <p>Guiados por la pasión y el compromiso, trabajamos cada día para ser la primera opción de nuestros
-                        clientes
-                    <p>
-                    <p>"Nuestra misión es proporcionar a nuestros clientes productos de las mejores marcas, reconocidas
-                        por su calidad y durabilidad, asegurando que encuentren exactamente lo que necesitan para sus
-                        motocicletas. Nos esforzamos por brindar un servicio excepcional, personalizado y cercano, que
-                        haga que cada visita a nuestra tienda sea una experiencia satisfactoria, basada en la confianza
-                        y la excelencia."</p>
-                </div>
-                <div class="imagen">
-                </div>
-            </div>
-        </section>
-        <section class="vision">
-            <div class="contenedor">
-                <div class="imagen"></div>
-                <div class="contenido">
-                    <h2><span class="blanco">NUESTRA </span><span class="negro">VISIÓN</span></h2>
-                    <p>Miramos al futuro con la determinación de seguir creciendo y liderando el mercado
-                    <p>
-                    <p>"Nos proyectamos como una de las empresas más competitivas del sector motero en nuestra región,
-                        cumpliendo y superando las expectativas de nuestros clientes. Para el 2023, aspiramos a
-                        consolidarnos como uno de los principales distribuidores mayoristas en el mercado piurano, y
-                        para el 2028, convertirnos en importadores de productos con nuestra propia marca, expandiendo
-                        nuestra presencia en diversos mercados a nivel nacional."</p>
-                </div>
-            </div>
-            </div>
-        </section>
-        <!-- Sección de Proveedores -->
-        <section class="text-center my-5">
-            <div class="container my-5">
-                <section class="text-center">
-                    <div class="mb-4">
-                        <h2 class="fw-bold text-uppercase">Nuestros <span class="fw-bold text-danger">Proveedores</span>
-                        </h2>
-                        <p>Trabajamos con proveedores líderes en la industria para asegurarte repuestos y accesorios de
-                            la más alta calidad.</p>
-                    </div>
+        <section class="container mt-5">
+            <div class="row">
+            <aside class="col-md-3">
+    <h2 class="h4 font-weight-bold mb-4">Categorías</h2>
+    <div class="btn-group-vertical" role="group" aria-label="Categorías">
+        <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('kits')">Kits en promoción</button>
+        <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('repuestos')">Repuestos</button>
+        <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('lubricantes')">Lubricantes</button>
+        <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('baterias')">Baterías</button>
+        <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('accesorios')">Accesorios</button>
+        <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('aros')">Aros y neumáticos</button>
+        <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('iluminacion')">Iluminación</button>
+        <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('insumos')">Insumos</button>
+    </div>
+</aside>
 
-                    <!-- Contenedor de los logos -->
-                    <div class="row">
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/BAJAJ.png" alt="BAJAJ">
-                            </div>
+                <section class="col-md-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span>Mostrando 1-12 de <?php echo $result->num_rows; ?> resultados</span>
+                        <select class="form-select w-auto">
+                            <option>Orden por defecto</option>
+                        </select>
+                    </div>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <?php if ($result->num_rows > 0): ?>
+                                <?php while ($row = $result->fetch_assoc()): ?>
+                                    <div class="col-md-3 mb-4">
+                                        <div class="card border rounded-lg product-card">
+                                            <div class="position-relative">
+                                                <img alt="<?php echo htmlspecialchars($row['nombre']); ?>" class="card-img-top" src="<?php echo htmlspecialchars($row['imagen']); ?>" height="180" />
+                                                <button class="btn btn-light position-absolute top-0 end-0 m-2">
+                                                    <i class="far fa-heart"></i>
+                                                </button>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title text-truncate"><?php echo htmlspecialchars($row['nombre']); ?></h5>
+                                                <p class="card-text text-danger font-weight-bold">S/<?php echo number_format($row['precio'], 2); ?></p>
+                                                <?php if (isset($row['precio_anterior'])): ?>
+                                                    <p class="text-muted text-decoration-line-through">S/<?php echo number_format($row['precio_anterior'], 2); ?></p>
+                                                <?php endif; ?>
+                                                <div class="d-flex align-items-center">
+                                                    <?php if (isset($row['stock']) && $row['stock'] > 0): ?>
+                                                        <span class="text-success"><i class="fas fa-box"></i> En Stock</span>
+                                                    <?php else: ?>
+                                                        <span class="text-danger"><i class="fas fa-box"></i> Agotado</span>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <button class="btn btn-danger w-100 mt-3"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php else: ?>
+                                <div class="col-12">
+                                    <p>No se encontraron productos.</p>
+                                </div>
+                            <?php endif; ?>
                         </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/Hero.png" alt="Hero">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/Honda.png" alt="Honda">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/Kawasaki.png" alt="Kawasaki">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/ktm.png" alt="KTM">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/yamaha.png" alt="Yamaha">
-                            </div>
-                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <?php if ($current_page > 1): ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page=<?php echo $current_page - 1; ?>" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+
+                                <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                                    <li class="page-item <?php if ($i == $current_page) echo 'active'; ?>">
+                                        <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    </li>
+                                <?php endfor; ?>
+
+                                <?php if ($current_page < $total_pages): ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page=<?php echo $current_page + 1; ?>" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </nav>
                     </div>
                 </section>
             </div>
@@ -386,7 +327,6 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-
 
     <div class="whatsapp">
         <div class="whatsapp__texto">

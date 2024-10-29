@@ -1,11 +1,14 @@
+<?php
+/* Aquí irían las conexiones y lógica PHP necesaria */
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/headeryfooter.css">
-    <link rel="stylesheet" href="../css/nosotros.css">
+    <title>Iniciar Sesión o Registrarse</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -13,65 +16,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-    <title>Nosotros - JIMDUR Repuestos</title>
+    <script src="../js/login.js"></script>
     <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-    }
 
-    .search-button {
-        background-color: #B22222;
-        border-radius: 0 25px 25px 0;
-        color: white;
-    }
-
-    .navbar-custom {
-        background-color: #B22222;
-    }
-
-    .containerHeader {
-        margin-left: 15px;
-        margin-right: 15px;
-        max-width: 100%;
-    }
-
-    /* STYLE PARA LOS PROOVEDORES */
-    .proveedor-card {
-        position: relative;
-        width: 100%;
-        padding-top: 100%;
-        /* Relación de aspecto 1:1 para un tamaño cuadrado */
-        background-color: #f8f9fa;
-        /* Color de fondo para tarjetas */
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .proveedor-card img {
-        position: absolute;
-        max-width: 80%;
-        /* Asegura que la imagen se mantenga dentro de la tarjeta */
-        max-height: 80%;
-        /* Asegura que la imagen se mantenga dentro de la tarjeta */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .proveedor-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .proveedor-card:hover img {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
     </style>
 </head>
 
@@ -119,9 +66,7 @@
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                         <li><a class="dropdown-item" href="../includes/cerrar_sesion.php">Cerrar sesión</a></li>
                         <?php else: ?>
-                        <li><a class="dropdown-item" href="../login/index.php">Iniciar Sesion y/o
-                                Registrarme</a></li>
-                        <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
+                        <li><a class="dropdown-item" href="index.php">Iniciar Sesion y/o Registrarme</a></li>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -139,10 +84,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="../index.php">Inicio</a>
+                        <a class="nav-link text-white" href="index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="nosotros.php">La empresa</a>
+                        <a class="nav-link text-white" href="../html/nosotros.php">La empresa</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="modeloDropdown" role="button"
@@ -163,122 +108,85 @@
                         <a class="nav-link text-white" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="contacto.php">Contacto</a>
+                        <a class="nav-link text-white" href="../contacto/index.php">Contacto</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="tarjeta">
+        <main class="autenticacion">
+            <nav class="autenticacion__navegacion">
+                <a href="#" class="autenticacion__enlace autenticacion__enlace--activo">INICIAR SESIÓN</a>
+                <a href="#" class="autenticacion__enlace">REGISTRARME</a>
+            </nav>
 
-    <main>
-        <section class="banner">
-            <div class="contenedor">
-                <h2 class="titulo-caratula">SOBRE NOSOTROS</h2>
-                <p class="titulo-caratula titulo--parrafo">Pasión por las motos, compromiso con calidad</p>
-            </div>
-        </section>
-        <section class="nuestra-historia">
-            <div class="contenedor">
-                <h2><span class="negro">NUESTRA </span><span class="rojo">HISTORIA</span></h2>
-                <P>"En Jimdur E.I.R.L. cada repuesto cuenta una historia y cada cliente es parte de la nuestra."</P>
-                <div class="contenido-historia">
-                    <div class="texto">
-                        <p>Fundada en la ciudad de Piura, Jimdur E.I.R.L. nace con el compromiso de ofrecer productos de
-                            calidad para los amantes de las motocicletas. Desde nuestros inicios, hemos centrado
-                            nuestros esfuerzos en satisfacer las necesidades de nuestros clientes, brindando una amplia
-                            gama de repuestos, piezas, y accesorios para todas las marcas y modelos del mercado. A lo
-                            largo de los años, nos hemos consolidado como una empresa líder en el sector, destacándonos
-                            por nuestra pasión por el servicio al cliente.</p>
-                        <p>Luis Jimenez</p>
-                        <p>Gerente General</p>
-                    </div>
-                    <div class="imagen">
-                        <img src="../img/retrato-elegante.jpg" alt="">
-                    </div>
+            <!-- Formulario de Inicio de Sesión -->
+            <form class="autenticacion__formulario" method="POST" action="procesar_login.php">
+                <div class="autenticacion__grupo">
+                    <label class="autenticacion__etiqueta" for="correo">
+                        Nombre de usuario o correo electrónico *
+                    </label>
+                    <input class="autenticacion__input" type="text" id="correo" name="correo" required
+                        autocomplete="username">
                 </div>
-            </div>
-        </section>
-        <section class="mision">
-            <div class="contenedor">
-                <div class="contenido">
-                    <h2><span class="blanco">NUESTRA </span><span class="rojo">MISIÓN</span></h2>
-                    <p>Guiados por la pasión y el compromiso, trabajamos cada día para ser la primera opción de nuestros
-                        clientes
-                    <p>
-                    <p>"Nuestra misión es proporcionar a nuestros clientes productos de las mejores marcas, reconocidas
-                        por su calidad y durabilidad, asegurando que encuentren exactamente lo que necesitan para sus
-                        motocicletas. Nos esforzamos por brindar un servicio excepcional, personalizado y cercano, que
-                        haga que cada visita a nuestra tienda sea una experiencia satisfactoria, basada en la confianza
-                        y la excelencia."</p>
-                </div>
-                <div class="imagen">
-                </div>
-            </div>
-        </section>
-        <section class="vision">
-            <div class="contenedor">
-                <div class="imagen"></div>
-                <div class="contenido">
-                    <h2><span class="blanco">NUESTRA </span><span class="negro">VISIÓN</span></h2>
-                    <p>Miramos al futuro con la determinación de seguir creciendo y liderando el mercado
-                    <p>
-                    <p>"Nos proyectamos como una de las empresas más competitivas del sector motero en nuestra región,
-                        cumpliendo y superando las expectativas de nuestros clientes. Para el 2023, aspiramos a
-                        consolidarnos como uno de los principales distribuidores mayoristas en el mercado piurano, y
-                        para el 2028, convertirnos en importadores de productos con nuestra propia marca, expandiendo
-                        nuestra presencia en diversos mercados a nivel nacional."</p>
-                </div>
-            </div>
-            </div>
-        </section>
-        <!-- Sección de Proveedores -->
-        <section class="text-center my-5">
-            <div class="container my-5">
-                <section class="text-center">
-                    <div class="mb-4">
-                        <h2 class="fw-bold text-uppercase">Nuestros <span class="fw-bold text-danger">Proveedores</span>
-                        </h2>
-                        <p>Trabajamos con proveedores líderes en la industria para asegurarte repuestos y accesorios de
-                            la más alta calidad.</p>
-                    </div>
 
-                    <!-- Contenedor de los logos -->
-                    <div class="row">
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/BAJAJ.png" alt="BAJAJ">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/Hero.png" alt="Hero">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/Honda.png" alt="Honda">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/Kawasaki.png" alt="Kawasaki">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/ktm.png" alt="KTM">
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-4">
-                            <div class="proveedor-card">
-                                <img src="../img/marcas/yamaha.png" alt="Yamaha">
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </section>
-    </main>
+                <div class="autenticacion__grupo">
+                    <label class="autenticacion__etiqueta" for="contrasena">
+                        Contraseña *
+                    </label>
+                    <input class="autenticacion__input" type="password" id="contrasena" name="contrasena" required
+                        autocomplete="current-password">
+                </div>
+
+                <div class="autenticacion__recordar">
+                    <input type="checkbox" id="recordar" name="recordar">
+                    <label for="recordar">Recordarme</label>
+                </div>
+
+                <button type="submit" class="autenticacion__boton">
+                    Iniciar sesión
+                </button>
+
+                <div class="autenticacion__recuperar">
+                    <a href="#" class="autenticacion__recuperar-enlace">
+                        ¿Perdiste tu contraseña?
+                    </a>
+                </div>
+            </form>
+
+            <!-- Formulario de Registro (Oculto por defecto) -->
+            <form class="autenticacion__formulario autenticacion__formulario--oculto" method="POST"
+                action="procesar_registro.php">
+
+                <div class="autenticacion__grupo">
+                    <label class="autenticacion__etiqueta" for="nuevo_usuario">
+                        Usuario *
+                    </label>
+                    <input class="autenticacion__input" type="text" id="nuevo_usuario" name="nuevo_usuario" required>
+                </div>
+
+                <div class="autenticacion__grupo">
+                    <label class="autenticacion__etiqueta" for="nuevo_correo">
+                        Correo electrónico *
+                    </label>
+                    <input class="autenticacion__input" type="email" id="nuevo_correo" name="nuevo_correo" required>
+                </div>
+
+                <div class="autenticacion__grupo">
+                    <label class="autenticacion__etiqueta" for="nueva_contrasena">
+                        Contraseña *
+                    </label>
+                    <input class="autenticacion__input" type="password" id="nueva_contrasena" name="nueva_contrasena"
+                        required>
+                </div>
+
+                <button type="submit" class="autenticacion__boton">
+                    Registrarse
+                </button>
+            </form>
+        </main>
+    </div>
 
     <!-- Footer -->
     <footer class="text-center text-lg-start text-light" style="background-color: rgb(35, 35, 35);">
@@ -320,10 +228,8 @@
                         <h6 class="text-uppercase fw-bold mb-4">SOBRE JIMDUR</h6>
                         <p>
                             Ofrecemos repuestos y accesorios de alta calidad para un rendimiento superior. Confiamos en
-                            nuestras
-                            marcas y experiencia para brindarte el mejor servicio y satisfacción. Tu moto está en buenas
-                            manos con
-                            nosotros.
+                            nuestras marcas y experiencia para brindarte el mejor servicio y satisfacción. Tu moto está
+                            en buenas manos con nosotros.
                         </p>
                         <p style="font-size: 12px;">&copy; Jimdur 2024</p>
                     </div>
@@ -386,7 +292,6 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-
 
     <div class="whatsapp">
         <div class="whatsapp__texto">

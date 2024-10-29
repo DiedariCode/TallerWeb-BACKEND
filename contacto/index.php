@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-    <link rel="stylesheet" href="../css/headeryfooter.css">
-    <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,65 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-    <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-    }
-
-    .search-button {
-        background-color: #B22222;
-        border-radius: 0 25px 25px 0;
-        color: white;
-    }
-
-    .navbar-custom {
-        background-color: #B22222;
-    }
-
-    .containerHeader {
-        margin-left: 15px;
-        margin-right: 15px;
-        max-width: 100%;
-    }
-
-    /* STYLE PARA LOS PROOVEDORES */
-    .proveedor-card {
-        position: relative;
-        width: 100%;
-        padding-top: 100%;
-        /* Relación de aspecto 1:1 para un tamaño cuadrado */
-        background-color: #f8f9fa;
-        /* Color de fondo para tarjetas */
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .proveedor-card img {
-        position: absolute;
-        max-width: 80%;
-        /* Asegura que la imagen se mantenga dentro de la tarjeta */
-        max-height: 80%;
-        /* Asegura que la imagen se mantenga dentro de la tarjeta */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .proveedor-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .proveedor-card:hover img {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-    </style>
 </head>
 
 <body>
@@ -120,7 +60,7 @@
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                         <li><a class="dropdown-item" href="../includes/cerrar_sesion.php">Cerrar sesión</a></li>
                         <?php else: ?>
-                        <li><a class="dropdown-item" href="../login/login_registro.php">Iniciar Sesion y/o
+                        <li><a class="dropdown-item" href="../login/index.php">Iniciar Sesion y/o
                                 Registrarme</a></li>
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                         <?php endif; ?>
@@ -155,7 +95,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-white" href="productos.php">
+                        <a class="nav-link text-white" href="../productos/index.php">
                             Productos
                         </a>
                     </li>
@@ -163,7 +103,7 @@
                         <a class="nav-link text-white" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="contacto.php">Contacto</a>
+                        <a class="nav-link text-white" href="index.php">Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -384,9 +324,7 @@
                 Repuestos</a>
         </div>
         <style>
-        .text-reset {
-            text-decoration: none;
-        }
+
         </style>
         <!-- Copyright -->
     </footer>

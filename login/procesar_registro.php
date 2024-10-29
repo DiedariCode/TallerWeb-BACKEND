@@ -10,7 +10,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $correo, $contrasena, $nombre);
 
 if ($stmt->execute()) {
-    echo "Registro exitoso. Ahora puedes iniciar sesión.";
+    echo "alert('Registro exitoso')";
     header("Location: login_registro.php");
     exit();
 } else {

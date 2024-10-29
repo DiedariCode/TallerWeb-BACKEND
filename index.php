@@ -94,7 +94,7 @@
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                         <li><a class="dropdown-item" href="includes/cerrar_sesion.php">Cerrar sesión</a></li>
                         <?php else: ?>
-                        <li><a class="dropdown-item" href="login/login_registro.php">Iniciar Sesion y/o Registrarme</a>
+                        <li><a class="dropdown-item" href="login/index.php">Iniciar Sesion y/o Registrarme</a>
                         </li>
                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                         <?php endif; ?>
@@ -130,7 +130,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-white" href="html/productos.php">
+                        <a class="nav-link text-white" href="productos/index.php">
                             Productos
                         </a>
                     </li>
@@ -138,7 +138,7 @@
                         <a class="nav-link text-white" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="html/contacto.php">Contacto</a>
+                        <a class="nav-link text-white" href="contacto/index.php">Contacto</a>
                     </li>
                 </ul>
             </div>
