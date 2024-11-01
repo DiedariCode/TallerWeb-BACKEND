@@ -131,7 +131,7 @@ $total_pages = ceil($total_products / $items_per_page);
     <main>
         <section class="container mt-5">
             <div class="row">
-            <aside class="col-md-3">
+            <aside class="col-md-2">
     <h2 class="h4 font-weight-bold mb-4">Categorías</h2>
     <div class="btn-group-vertical" role="group" aria-label="Categorías">
         <button type="button" class="btn btn-danger btn-lg mb-2" onclick="filtrarCategoria('kits')">Kits en promoción</button>

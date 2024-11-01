@@ -11,5 +11,5 @@ function contarProductos($conn) {
     $row = $result->fetch_assoc();
     return $row['total'];
 }
-
 ?>
+
